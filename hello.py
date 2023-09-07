@@ -1,3 +1,7 @@
+# Qt Designer Path
+# env\Lib\site-packages\qt6_applications\Qt\bin
+
+
 # Functional Way
 from PyQt6.QtWidgets import *
 import sys
