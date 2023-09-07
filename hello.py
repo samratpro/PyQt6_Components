@@ -7,10 +7,8 @@
 
 # Load UI file
 from PyQt6 import uic
-# Functional
-uic.loadUi('hello.ui', window)
-# Class base
-uic.loadUi('hello.ui',self)
+uic.loadUi('hello.ui', window) # Functional
+uic.loadUi('hello.ui',self) # Class base
 
 
 # Functional Way
