@@ -2,8 +2,16 @@
 # env\Lib\site-packages\qt6_applications\Qt\bin
 
 # UI to Py
-# Activate virtual Environment, if project in local environment : source env/scripts/activate
+# Activate virtual Environment, if project in local environment: source env/scripts/activate
 # pyuic6 -x gui_path.ui -o py_path.py
+
+# Load UI file
+from PyQt6 import uic
+# Functional
+uic.loadUi('hello.ui', window)
+# Class base
+uic.loadUi('hello.ui',self)
+
 
 # Functional Way
 from PyQt6.QtWidgets import *
