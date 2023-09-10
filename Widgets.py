@@ -30,7 +30,22 @@ class Window(QWidget):  # QWidget....................
         line.setEnabled(True)
         line.setEchoMode(QLineEdit.EchoMode.Password)
 
-        
+
+        # Spin Box
+        HBox = QHBoxLayout(self)
+        self.label = QLabel('Price : ')
+        self.spinbox = QSpinBox(self)
+        self.spinbox.valueChanged.connect(self.price_change)  # When User will scroll up price will change
+        self.line = QLineEdit(self)
+        self.line.setFixedWidth(300)
+        HBox.addWidget(self.label)
+        HBox.addWidget(self.spinbox)
+        HBox.addWidget(self.line)
+        self.setLayout(HBox)
+
+    def price_change(self):
+        spin_data = self.spinbox.value()
+        self.line.setText(str(spin_data * 500))  # Must be pass as string
 
 
 app = QApplication(sys.argv)
