@@ -8,6 +8,8 @@ class Window(QWidget):  # QWidget....................
     def __init__(self):
         super().__init__()
         self.setGeometry(220, 220, 700, 400)
+        self.setWindowTitle('Hello App')
+        self.setWindowIcon(QIcon("py.png"))
 
         # Working with label
         label = QLabel('Hi 1', self)
