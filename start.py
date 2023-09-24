@@ -1,3 +1,6 @@
+# pip install pyqt6
+# pip install pyqt6-tools
+
 # Qt Designer Path
 # env\Lib\site-packages\qt6_applications\Qt\bin
 
