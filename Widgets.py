@@ -42,6 +42,7 @@ class Window(QWidget):  # QWidget....................
         HBox = QHBoxLayout(self)
         self.label = QLabel('Price : ')
         self.spinbox = QSpinBox(self)
+        # ***************** Event ******************************
         self.spinbox.valueChanged.connect(self.price_change)  # When User will scroll up price will change for price_change function
         self.line = QLineEdit(self)
         HBox.addWidget(self.label)
@@ -69,7 +70,17 @@ class Window(QWidget):  # QWidget....................
         grid.addWidget(self.line, 0, 1)
         self.setLayout(grid)
     
+        # Q Push Button with event           
+        vbox = QVBoxLayout(self)             
+        self.btn = QPushButton('My Data', sel
+        self.btn.clicked.connect(self.create_
+        vbox.addStretch(5)                   
+        vbox.addWidget(self.btn)             
 
+                                 
+    def create_message(self):                
+        new_label = QLabel('New Label')      
+        self.layout().addWidget(new_label)   
 
     def price_change(self):
         spin_data = self.spinbox.value()
