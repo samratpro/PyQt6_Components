@@ -135,14 +135,18 @@ class Window(QWidget):  # QWidget....................
         self.setLayout(layout)
 
         # ***************** Q Slider or Progress Bar **********************
-        layout = QVBoxLayout()
+        layout = QHBoxLayout()
+        self.label = QLabel()
+        self.line = QLineEdit()
+        # self.line.returnPressed.connect(self.set_slider_value)
+        self.line.textChanged.connect(self.set_slider_value)
+
         self.slider = QSlider()
+        self.slider.setMinimum(0)
+        self.slider.setMaximum(200)
+        self.slider.valueChanged.connect(self.set_lable_value)
         self.slider.setOrientation(Qt.Orientation.Horizontal)
-        self.slider.sliderMoved.connect(self.on_slider_moved)
-        self.slider.sliderPressed.connect(self.on_slider_pressed)
-        self.slider.sliderReleased.connect(self.on_slider_released)
-        layout.addWidget(self.slider)
-        self.setLayout(layout)
+        self.slider.setTickPosition(QSlider.TickPosition.TicksBelow)
 
     
     # ********************** Enabling Event on Label ***********
@@ -225,6 +229,17 @@ class Window(QWidget):  # QWidget....................
         print("Slider pressed")
    def on_slider_released(self):
         print("Slider released")
+
+   def set_lable_value(self):
+        value = self.slider.value()
+        self.label.setText(str(value))
+        self.line.setText(str(value))
+   def set_slider_value(self):
+        try:
+            value = int(self.line.text())
+            self.slider.setValue(value)
+        except:
+            pass
 
      
     def mouseMoveEvent(self, e):
