@@ -147,6 +147,13 @@ class Window(QWidget):  # QWidget....................
         self.slider.valueChanged.connect(self.set_lable_value)
         self.slider.setOrientation(Qt.Orientation.Horizontal)
         self.slider.setTickPosition(QSlider.TickPosition.TicksBelow)
+        self.slider.sliderMoved.connect(self.on_slider_moved)
+        self.slider.sliderPressed.connect(self.on_slider_pressed)
+        self.slider.sliderReleased.connect(self.on_slider_released)
+        layout.addWidget(self.slider)
+        layout.addWidget(self.label)
+        layout.addWidget(self.line)
+        self.setLayout(layout)
 
     
     # ********************** Enabling Event on Label ***********
