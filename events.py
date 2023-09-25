@@ -115,6 +115,7 @@ class Window(QWidget):  # QWidget....................
         self.list_widget = QListWidget()
         self.list_widget.addItem('Item 1')
         self.list_widget.addItem('Item 2')
+        self.list_widget.insertItem(0, 'Item 0')
         self.list_widget.itemClicked.connect(self.on_item_clicked)
         self.list_widget.itemDoubleClicked.connect(self.on_item_double_clicked)
         self.list_widget.itemSelectionChanged.connect(self.on_item_selection_changed)
