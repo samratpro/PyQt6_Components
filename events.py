@@ -32,7 +32,11 @@ intValueChanged, doubleValueChanged, intValueSelected, doubleValueSelected
 valueChanged: Generated when the value of the dial changes.
 QTextEdit (Text Edit):
 
+
+
 """
+
+
 
 
 
@@ -55,6 +59,16 @@ class Window(QWidget):  # QWidget....................
         self.line = QLineEdit(self)
         self.line.textChanged.connect(self.label.setText)
         self.line.editingFinished.connect(self.on_editing_finished)
+
+        
+        # ********************** Enableing Event on Label ***********
+        layout = QVBoxLayout()
+        self.label = QLabel('Label Text')
+        self.label.setMouseTracking(True)  # Enable mouse tracking to detect mouse clicks
+        self.label.mousePressEvent = self.on_label_click  # Override the mousePressEvent method
+        layout.addWidget(self.label)
+        self.setLayout(layout)
+
       
         # Spin Box and QHBoxLayout
         self.spinbox = QSpinBox(self)
@@ -132,6 +146,11 @@ class Window(QWidget):  # QWidget....................
         layout.addWidget(self.slider)
         self.setLayout(layout)
 
+    
+    # ********************** Enableing Event on Label ***********
+    def on_label_click(self, event):
+        if event.button() == Qt.MouseButton.LeftButton:
+            print("Label clicked!")
     
     # *************** QTextEdit ****************
     def on_text_changed(self): 
