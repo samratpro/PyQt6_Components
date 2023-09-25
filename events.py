@@ -32,10 +32,7 @@ intValueChanged, doubleValueChanged, intValueSelected, doubleValueSelected
 valueChanged: Generated when the value of the dial changes.
 QTextEdit (Text Edit):
 
-
-
 """
-
 
 
 
@@ -61,7 +58,7 @@ class Window(QWidget):  # QWidget....................
         self.line.editingFinished.connect(self.on_editing_finished)
 
         
-        # ********************** Enableing Event on Label ***********
+        # ********************** Enabling Event on Label ***********
         layout = QVBoxLayout()
         self.label = QLabel('Label Text')
         self.label.setMouseTracking(True)  # Enable mouse tracking to detect mouse clicks
@@ -79,7 +76,7 @@ class Window(QWidget):  # QWidget....................
         self.btn = QPushButton('My Data', sel
         self.btn.clicked.connect(self.create_message)   
 
-        # Radio Button               
+        # **************** Radio Button ******************             
         self.radio_button = QRadioButton('Option 1')
         self.radio_button.toggled.connect(self.on_radio_toggled)
 
@@ -147,10 +144,15 @@ class Window(QWidget):  # QWidget....................
         self.setLayout(layout)
 
     
-    # ********************** Enableing Event on Label ***********
+    # ********************** Enabling Event on Label ***********
     def on_label_click(self, event):
         if event.button() == Qt.MouseButton.LeftButton:
             print("Label clicked!")
+            
+    # ********************** Radio Button ***********
+    def radio_operation(self):
+        if self.radio_button.isChecked() == True:
+            print("Radio Button has been checked")
     
     # *************** QTextEdit ****************
     def on_text_changed(self): 
@@ -180,6 +182,10 @@ class Window(QWidget):  # QWidget....................
             print("Check box checked")
         else:
             print("Check box unchecked")
+
+    def check_box(self):
+        if self.checkbox.isChecked():
+            print("Checked")
 
     # *********** Combobox ******************
     def on_activated(self, index):
