@@ -75,6 +75,9 @@ class Window(QWidget):  # QWidget....................
         self.text_edit = QTextEdit()
         self.text_edit.textChanged.connect(self.on_text_changed)
         self.text_edit.cursorPositionChanged.connect(self.on_cursor_position_changed)
+        self.text_edit.copyAvailable.connect(self.on_copy_available)
+        self.text_edit.redoAvailable.connect(self.on_redo_available)
+        self.text_edit.undoAvailable.connect(self.on_undo_available)
         layout.addWidget(self.text_edit)
         self.setLayout(layout)
 
@@ -136,6 +139,21 @@ class Window(QWidget):  # QWidget....................
     def on_cursor_position_changed(self):
         cursor_position = self.text_edit.textCursor().position()
         print("Cursor position:", cursor_position)
+    def on_copy_available(self, enable):
+        if enable:
+            print("Text can be copied to clipboard")
+        else:
+            print("No text available to copy")
+    def on_redo_available(self, enable):
+        if enable:
+            print("Redo actions are available")
+        else:
+            print("No redo actions available")
+    def on_undo_available(self, enable):
+        if enable:
+            print("Undo actions are available")
+        else:
+            print("No undo actions available")
 
     # ******************** QCheckBox ********************
     def on_checkbox_state_changed(self, state):
