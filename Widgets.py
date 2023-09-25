@@ -72,7 +72,7 @@ class Window(QWidget):  # QWidget....................
     
         # Q Push Button with event           
         vbox = QVBoxLayout(self)             
-        self.btn = QPushButton('My Data', sel
+        self.btn = QPushButton('My Data', self)
         self.btn.clicked.connect(self.create_message)
         vbox.addStretch(5)                   
         vbox.addWidget(self.btn)             
