@@ -1,3 +1,41 @@
+"""
+QSpinBox (Spin Box):
+valueChanged
+
+QDateEdit (Date Edit):
+dateChanged
+
+QTimeEdit (Time Edit):
+timeChanged
+
+QDateTimeEdit (Date and Time Edit):
+dateTimeChanged
+
+QSlider (Slider):
+valueChanged
+
+QScrollBar (Scroll Bar):
+valueChanged
+
+QFileDialog (File Dialog):
+Signals like fileSelected and filesSelected are generated when files are selected in the file dialog.
+
+QColorDialog (Color Dialog):
+colorSelected
+
+QFontDialog (Font Dialog):
+fontSelected
+
+QInputDialog (Input Dialog):
+intValueChanged, doubleValueChanged, intValueSelected, doubleValueSelected
+
+valueChanged: Generated when the value of the dial changes.
+QTextEdit (Text Edit):
+
+"""
+
+
+
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
 from PyQt6 import uic
