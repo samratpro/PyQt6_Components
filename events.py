@@ -2,6 +2,7 @@ from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
 from PyQt6 import uic
 import sys
+from PyQt6.QtCore import Qt
 
 
 class Window(QWidget):  # QWidget....................
@@ -80,6 +81,17 @@ class Window(QWidget):  # QWidget....................
         layout.addWidget(self.table_widget)
         self.setLayout(layout)
 
+        # ***************** Q Slider or Progress Bar **********************
+        layout = QVBoxLayout()
+        self.slider = QSlider()
+        self.slider.setOrientation(Qt.Orientation.Horizontal)
+        self.slider.sliderMoved.connect(self.on_slider_moved)
+        self.slider.sliderPressed.connect(self.on_slider_pressed)
+        self.slider.sliderReleased.connect(self.on_slider_released)
+        layout.addWidget(self.slider)
+        self.setLayout(layout)
+
+    
     # *************** QTextEdit ****************
     def on_text_changed(self): 
         print("Text changed:", self.text_edit.toPlainText())
@@ -101,17 +113,17 @@ class Window(QWidget):  # QWidget....................
     def on_current_index_changed(self, index):
         selected_item = self.combo_box.itemText(index)
         print(f"Current Index Changed: {selected_item}") 
+        
 
-
-   # ***************** Q List *********************
-   def on_item_clicked(self, item):
+    # ***************** Q List *********************
+    def on_item_clicked(self, item):
         print(f"Item clicked: {item.text()}")
-   def on_item_double_clicked(self, item):
+    def on_item_double_clicked(self, item):
         print(f"Item double-clicked: {item.text()}")
-   def on_item_selection_changed(self):
+    def on_item_selection_changed(self):
         selected_items = [item.text() for item in self.list_widget.selectedItems()]
         print(f"Selection changed: {selected_items}")
-
+       
 
    # **************** Table ******************
    def on_cell_clicked(self, row, column):
@@ -123,6 +135,14 @@ class Window(QWidget):  # QWidget....................
    def on_item_selection_changed(self):
       selected_items = [item.text() for item in self.table_widget.selectedItems()]
       print(f"Selection changed: {selected_items}")
+
+   # ***************** Q Slider or Progress Bar **********************
+   def on_slider_moved(self, value):
+        print(f"Slider moved to {value}")
+   def on_slider_pressed(self):
+        print("Slider pressed")
+   def on_slider_released(self):
+        print("Slider released")
 
      
     def mouseMoveEvent(self, e):
