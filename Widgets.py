@@ -11,7 +11,7 @@ class Window(QWidget):  # QWidget....................
         self.setWindowTitle('Hello App')
         self.setWindowIcon(QIcon("py.png"))
 
-        # Working with label
+        #  ********* Working with label *********
         label = QLabel('Hi 1', self)
         label.setText('Hi')
         label.setNum(15)
@@ -19,17 +19,17 @@ class Window(QWidget):  # QWidget....................
         label.setStyleSheet('color:blue')
         label.clear()
 
-        #  Add Picture in Label
+        # ********* Add Picture in Label *********
         pixmap = QPixmap('py.png')  
         label.setPixmap(pixmap)
 
-        # Add gif picture in label
+        # ********* Add gif picture in label *********
         movie = QMovie('py.gif')  
         label.setMovie(movie)
         movie.start()
 
 
-        # QLineEdit 
+        # ********* QLineEdit *********
         line = QLineEdit(self)  # self or Window
         self.line.setFixedWidth(300)
         line.setText('Hi 2')
@@ -38,7 +38,7 @@ class Window(QWidget):  # QWidget....................
         line.setEchoMode(QLineEdit.EchoMode.Password)
         
 
-        # Spin Box and QHBoxLayout
+        # ********* Spin Box and QHBoxLayout *********
         HBox = QHBoxLayout(self)
         self.label = QLabel('Price : ')
         self.spinbox = QSpinBox(self)
@@ -51,7 +51,7 @@ class Window(QWidget):  # QWidget....................
         VBox.addStretch(5)
         self.setLayout(HBox)
 
-        # VBoxLayout
+        # ********* VBoxLayout *********
         VBox = QVBoxLayout(self)
         self.label = QLabel('V Box Test')
         self.line = QLineEdit(self)
@@ -61,7 +61,7 @@ class Window(QWidget):  # QWidget....................
         self.setLayout(VBox)
 
 
-        # Grid Layout, it like tkinter
+        # ********* Grid Layout, it like tkinter *********
         grid = QGridLayout(self)
         self.label = QLabel('V Box Test')
         self.line = QLineEdit(self)
@@ -70,13 +70,29 @@ class Window(QWidget):  # QWidget....................
         grid.addWidget(self.line, 0, 1)
         self.setLayout(grid)
     
-        # Q Push Button with event           
+        # ********* Q Push Button with event  *********         
         vbox = QVBoxLayout(self)             
         self.btn = QPushButton('My Data', self)
         self.btn.clicked.connect(self.create_message)
         vbox.addStretch(5)                   
         vbox.addWidget(self.btn)             
 
+        # ********* listWidget For add_item(self) *********
+        VBox = QVBoxLayout(self)
+        self.listWidget = QListWidget()
+        self.additem = QPushButton(VBox)
+        self.additem.clicked.connect(self.add_item)
+        VBox.addWidget(self.listWidget)
+        
+
+    
+    # ********* QInputDialog With listWidget Data Add *********
+    def add_item(self):
+        row = self.listWidget.currentRow()
+        title = 'Add Item'
+        data, ok = QInputDialog.getText(self, title, title)
+        if ok and len(data) > 0:
+            self.listWidget.insertItem(row, data)
                                  
     def create_message(self):                
         new_label = QLabel('New Label')      
