@@ -249,15 +249,6 @@ class Window(QWidget):  # QWidget....................
         layout.addWidget(self.line)
         self.setLayout(layout)
 
-   def on_slider_moved(self, value):
-        print(f"Slider moved to {value}")
-       
-   def on_slider_pressed(self):
-        print("Slider pressed")
-       
-   def on_slider_released(self):
-        print("Slider released")
-
    def set_lable_value(self):
         value = self.slider.value()
         self.label.setText(str(value))
@@ -269,6 +260,17 @@ class Window(QWidget):  # QWidget....................
             self.slider.setValue(value)
         except:
             pass
+
+
+   def on_slider_moved(self, value):
+        print(f"Slider moved to {value}")
+       
+   def on_slider_pressed(self):
+        print("Slider pressed")
+       
+   def on_slider_released(self):
+        print("Slider released")
+
 
         
         # ******************  QInputDialog With    ******************
