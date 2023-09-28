@@ -83,24 +83,7 @@ class Window(QWidget):  # QWidget....................
         self.additem = QPushButton(VBox)
         self.additem.clicked.connect(self.add_item)
         VBox.addWidget(self.listWidget)
-        
 
-    
-    # ********* QInputDialog With listWidget Data Add *********
-    def add_item(self):
-        row = self.listWidget.currentRow()
-        title = 'Add Item'
-        data, ok = QInputDialog.getText(self, title, title)
-        if ok and len(data) > 0:
-            self.listWidget.insertItem(row, data)
-                                 
-    def create_message(self):                
-        new_label = QLabel('New Label')      
-        self.layout().addWidget(new_label)   
-
-    def price_change(self):
-        spin_data = self.spinbox.value()
-        self.line.setText(str(spin_data * 500))  # Must be pass as string
 
 
 app = QApplication(sys.argv)
