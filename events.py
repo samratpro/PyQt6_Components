@@ -289,7 +289,14 @@ class Window(QWidget):  # QWidget....................
             self.listWidget.insertItem(row, data)
 
 
-    
+    # ******************  Messagebox  ******************
+    '''
+        QMessageBox.warning(self, 'Message')
+        QMessageBox.information(self, 'Message')
+        QMessageBox.question(self, 'Remove Item', 'Do you want to remove item?',
+                                      QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+                                      )
+    '''
 
      
     def mouseMoveEvent(self, e):
