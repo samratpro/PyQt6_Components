@@ -1,3 +1,10 @@
+'''
+************* change styel sheet **************
+QPushButton:hover{border:1px solid #0078D7}
+QPushButton{border:1px solid #7A7A7A}
+'''
+
+
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
 from PyQt6 import uic
