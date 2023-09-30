@@ -1,14 +1,3 @@
-'''
-layout = QVBoxLayout(self/parent)
-....
-layout.addwidget(others)
-or
-layout.addLayout(otherwidget)
-
-'''
-
-
-
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
 from PyQt6 import uic
