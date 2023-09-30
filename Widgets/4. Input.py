@@ -145,6 +145,8 @@ class Window(QWidget):  # QWidget....................
         print("Slider released")
 
 
+        # **************** key Sequence Edit **********************  Gap
+
 
 app = QApplication(sys.argv)
 window = Window()
