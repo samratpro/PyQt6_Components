@@ -35,6 +35,21 @@ class Window(QWidget):  # QWidget....................
         selected_items = [item.text() for item in self.list_widget.selectedItems()]
         print(f"Selection changed: {selected_items}")
 
+        # ******************  Q List 2  ******************
+        VBox = QVBoxLayout(self)
+        self.listWidget = QListWidget()
+        self.additem = QPushButton(VBox)
+        self.additem.clicked.connect(self.add_item)
+        VBox.addWidget(self.listWidget)
+        
+    def add_item(self):
+        row = self.listWidget.currentRow()
+        title = 'Add Item'
+        data, ok = QInputDialog.getText(self, title, title)
+        if ok and len(data) > 0:
+            self.listWidget.insertItem(row, data)
+
+        
       
         # **************** Tree ******************
 
