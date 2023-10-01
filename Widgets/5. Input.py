@@ -2,6 +2,11 @@
 ************* change styel sheet **************
 QPushButton:hover{border:1px solid #0078D7}
 QPushButton{border:1px solid #7A7A7A}
+
+color: blue;
+background-color: yellow;
+selection-color: yellow;
+selection-background-color: red;
 '''
 
 
