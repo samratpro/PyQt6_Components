@@ -39,6 +39,7 @@ class Window(QWidget):  # QWidget....................
         # *************** QTextEdit ********************
         layout = QVBoxLayout()
         self.text_edit = QTextEdit()
+        self.text_edit.setReadOnly(True)
         self.text_edit.textChanged.connect(self.on_text_changed)   # *** Event
         self.text_edit.cursorPositionChanged.connect(self.on_cursor_position_changed)   # *** Event
         self.text_edit.copyAvailable.connect(self.on_copy_available)   # *** Event
