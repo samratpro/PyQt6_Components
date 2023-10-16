@@ -1,10 +1,16 @@
+# This Is Different ** QDialog ** Form That dosen't need ** app.exec() **
+
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QDialog, QFileDialog
 
 class Ui_Dialog(QDialog):
-    browser_created = QtCore.pyqtSignal(dict)   # Creating Signal or Event *** Must be include data Type ***
+    
+    # Creating Signal or Event *** Must be include data Type ***
+    browser_created = QtCore.pyqtSignal(dict)  
+    
     def __init__(self):
         super().__init__()
+        
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.setWindowTitle("Browser Create Form")
@@ -113,11 +119,18 @@ class Ui_Dialog(QDialog):
         self.createbrowseraction.setText("Create Browser")
         self.createbrowseraction.clicked.connect(self.new_browser_data)
         self.gridLayout.addWidget(self.createbrowseraction, 8, 0, 1, 3)
-        self.mail_data = None  # To storing Text file data
-        self.proxy_data = None  # To storing Text file data
 
+        
+        # To store Text file data, *** Casue After uploading the file and reading data, this variable will store that data
+        # File isn't a simple text line that stores data like ** QLineEdit **
+        self.mail_data = None  
 
-    def get_mail_file(self):  # Open and Read Text File Data and Store in ** self.mail_data = None
+        # To store Text file data
+        self.proxy_data = None  
+
+    
+    # Open and Read Text File Data and Store in ** self.mail_data = None
+    def get_mail_file(self):  
         path = str(QFileDialog.getOpenFileName(self, "Select File"))
         print(path)
         if 'txt' in path:
@@ -130,7 +143,9 @@ class Ui_Dialog(QDialog):
                 self.mail_data = [x.strip() for x in mail_raw]
                 print(mail_raw)
 
-    def get_proxy_file(self):  # Open and Read Text File Data and Store in ** self.proxy_data = None
+    
+    # Open and Read Text File Data and Store in ** self.proxy_data = None
+    def get_proxy_file(self): 
         path = str(QFileDialog.getOpenFileName(self, 'Select File'))
         print(path)
         if 'txt' in path:
@@ -143,6 +158,8 @@ class Ui_Dialog(QDialog):
                 self.proxy_data = [x.strip() for x in proxy_raw]
                 print(proxy_raw)
 
+    
+    # This method will Read All data after Completing input Form data from user ** self.accept() will close this form
     def new_browser_data(self):
         browser_name = self.browsernamevalue.text()
         smaapi = self.smsapivalue.text()
@@ -174,7 +191,7 @@ class Ui_Dialog(QDialog):
                     }
 
             # Emit the custom signal with the browser_name **********
-            self.browser_created.emit(data)  # Creating This event *** this hapenning from **** first lien of class browser_created = QtCore.pyqtSignal(dict)
+            self.browser_created.emit(data)  # Creating This event *** this happening from **** first lien of class browser_created = QtCore.pyqtSignal(dict)
             print('Emitting browser_created signal with browser_name:', browser_name)
 
             # Clearing all records ***************
@@ -184,5 +201,6 @@ class Ui_Dialog(QDialog):
             self.nofilechosenhotmail.clear()
             self.mail_data = None
             self.proxy_data = None
-
-            self.accept()  # Closing Form, when operation has been completed **********
+            
+            # Closing Form, when operation has been completed **********
+            self.accept()  
