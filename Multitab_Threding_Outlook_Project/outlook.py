@@ -73,6 +73,8 @@ class Ui_outlookobject(QWidget):
     def browser_created(self, browser_name):  
         print('Browser Created:', browser_name)
         self.browserlist.addItem(browser_name['browser_name'])
+        
+        # Threading will start from here .....................
 
 
     def stop_browser(self):
