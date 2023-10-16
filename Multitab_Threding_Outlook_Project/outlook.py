@@ -1,7 +1,7 @@
 # outlook.py
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QDialog
-from outlookinput import Ui_Dialog
+from input_form import Ui_Dialog
 from PyQt6.QtWidgets import *
 
 
@@ -9,9 +9,13 @@ class Ui_outlookobject(QWidget):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.dialog = Ui_Dialog()  # Create an instance from Ui_Dialog class  ** From outlookinput.py file
-        self.dialog.setupUi(self.dialog)  # Initialize the dialog's UI Method
-        self.dialog.browser_created.connect(self.browser_created)  # Connect the signal, to get data in Different class
+
+        # Create an instance from Ui_Dialog class  ** From input_form.py file
+        self.dialog = Ui_Dialog()  
+        # Initialize the dialog's UI Method
+        self.dialog.setupUi(self.dialog)  
+        # Connect the signal, to get data in Different Class or Different file's Class
+        self.dialog.browser_created.connect(self.browser_created)  
 
     def setupUi(self, outlookobject):
         outlookobject.setObjectName("outlookobject")
@@ -65,10 +69,10 @@ class Ui_outlookobject(QWidget):
         self.logs.setObjectName("logs")
         self.horizontalLayout.addLayout(self.verticalLayout_2)
 
-    def browser_created(self, browser_name):  # This method will execute when ** new_browser_data() will execute for signal of outlookinput
+    # This method will execute when ** new_browser_data() will execute from ** input_form.py ** for signal passing
+    def browser_created(self, browser_name):  
         print('Browser Created:', browser_name)
         self.browserlist.addItem(browser_name['browser_name'])
-
 
 
     def stop_browser(self):
