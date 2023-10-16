@@ -191,7 +191,9 @@ class Ui_Dialog(QDialog):
                     }
 
             # Emit the custom signal with the browser_name **********
+            # This method witll execute also in Passing Class ** outlook.py **
             self.browser_created.emit(data)  # Creating This event *** this happening from **** first lien of class browser_created = QtCore.pyqtSignal(dict)
+            
             print('Emitting browser_created signal with browser_name:', browser_name)
 
             # Clearing all records ***************
