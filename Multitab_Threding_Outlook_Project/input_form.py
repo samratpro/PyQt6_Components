@@ -48,7 +48,7 @@ class Ui_Dialog(QDialog):
         self.choosefilehotmail = QtWidgets.QToolButton(parent=self.widget)
         self.choosefilehotmail.setObjectName("choosefilehotmail")
         self.choosefilehotmail.setText("Choose File..")
-        self.choosefilehotmail.clicked.connect(self.get_mail_file)
+        self.choosefilehotmail.clicked.connect(self.get_mail_file)       # ---------- get_mail_file() method will execute when click 
         self.gridLayout.addWidget(self.choosefilehotmail, 2, 1, 1, 1)
 
         self.nofilechosenhotmail = QtWidgets.QLabel(parent=self.widget)
@@ -64,7 +64,7 @@ class Ui_Dialog(QDialog):
         self.choosefileproxy = QtWidgets.QToolButton(parent=self.widget)
         self.choosefileproxy.setObjectName("choosefileproxy")
         self.choosefileproxy.setText("Choose File..")
-        self.choosefileproxy.clicked.connect(self.get_proxy_file)
+        self.choosefileproxy.clicked.connect(self.get_proxy_file)        # ----------  get_proxy_file() method will execute when click on this
         self.gridLayout.addWidget(self.choosefileproxy, 3, 1, 1, 1)
 
         self.nofilechosenproxy = QtWidgets.QLabel(parent=self.widget)
@@ -117,7 +117,7 @@ class Ui_Dialog(QDialog):
         self.createbrowseraction.setIcon(icon)
         self.createbrowseraction.setObjectName("createbrowseraction")
         self.createbrowseraction.setText("Create Browser")
-        self.createbrowseraction.clicked.connect(self.new_browser_data)
+        self.createbrowseraction.clicked.connect(self.new_browser_data)     # -----  new_browser_data() & browser_created() two methods will execute 
         self.gridLayout.addWidget(self.createbrowseraction, 8, 0, 1, 3)
 
         
